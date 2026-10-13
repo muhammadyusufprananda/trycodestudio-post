@@ -1,0 +1,37 @@
+{
+  "name": "trycode-postmaker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desktop postmaker for Trycode Studio",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^44.6.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "studio.trycode.postmaker",
+    "productName": "Trycode Postmaker",
+    "files": [
+      "main.cjs",
+      "index.html",
+      "app.js",
+      "style.css"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["nsis"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

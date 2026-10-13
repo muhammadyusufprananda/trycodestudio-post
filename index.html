@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f3ed" />
+    <meta name="description" content="Rangkai konten Instagram Trycode Studio halaman demi halaman. Gratis, lokal, tanpa AI." />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:;" />
+    <title>Postmaker — trycode_ studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="trycode studio"><span>try</span><b>code</b><span>_</span><small>STUDIO</small></a>
+      <div class="topbar-right"><span class="local-badge"><i></i> TERSIMPAN OTOMATIS</span><a class="back-link" href="https://trycodestudio.github.io/">Situs studio <span aria-hidden="true">↗</span></a></div>
+    </header>
+
+    <main>
+      <section class="project-home" id="project-home">
+        <div class="home-intro">
+          <span class="step-label">POSTMAKER · TRYCODE STUDIO</span>
+          <h1>Mulai dari <em>sebuah ide.</em></h1>
+          <p>Pilih tujuan konten dan ukuran canvas. Tema akan menjaga tampilan carousel tetap senada.</p>
+        </div>
+        <div class="setup-card">
+          <section class="setup-section theme-setup">
+            <div class="setup-heading"><span>01</span><div><h2>Kontennya tentang apa?</h2><p>Pilihan ini menentukan warna aksen dan komposisi semua post.</p></div></div>
+            <div class="project-theme-options" role="group" aria-label="Pilih tema project">
+              <button class="project-theme-option active" type="button" data-theme="education" aria-pressed="true"><i class="theme-mark education-mark"></i><strong>Edukasi &amp; tips</strong><small>Terstruktur, jelas, mudah diikuti.</small></button>
+              <button class="project-theme-option" type="button" data-theme="promotion" aria-pressed="false"><i class="theme-mark promotion-mark"></i><strong>Promosi &amp; layanan</strong><small>Benefit menonjol, CTA kuat.</small></button>
+              <button class="project-theme-option" type="button" data-theme="portfolio" aria-pressed="false"><i class="theme-mark portfolio-mark"></i><strong>Portofolio &amp; karya</strong><small>Visual karya jadi fokus utama.</small></button>
+              <button class="project-theme-option" type="button" data-theme="studio" aria-pressed="false"><i class="theme-mark studio-mark"></i><strong>Cerita studio</strong><small>Fleksibel untuk kabar dan cerita.</small></button>
+            </div>
+          </section>
+          <section class="setup-section size-setup">
+            <div class="setup-heading"><span>02</span><div><h2>Mau buat project dengan ukuran berapa?</h2><p>Ukuran ini berlaku untuk semua post di project.</p></div></div>
+            <div class="segmented format-options" role="group" aria-label="Ukuran post">
+              <button class="size-option" data-size="square" type="button" aria-pressed="false">Feed <small>1:1</small></button>
+              <button class="size-option" data-size="portrait" type="button" aria-pressed="false">Portrait <small>4:5</small></button>
+              <button class="size-option" data-size="story" type="button" aria-pressed="false">Story <small>9:16</small></button>
+            </div>
+          </section>
+          <section class="setup-footer">
+            
+            <button class="primary-action" id="create-project" type="button" disabled>Lanjutkan <b aria-hidden="true">→</b></button>
+          </section>
+          <button class="resume-project" id="resume-project" type="button" hidden></button>
+        </div>
+        <footer><span>Diracik dengan kode, bukan AI. ✳</span><span>trycode_ studio <b>·</b> 2026</span></footer>
+      </section>
+
+      <section class="project-workspace" id="project-workspace" hidden>
+        <div class="workspace-topline">
+          <button class="back-home" id="back-home" type="button"><span aria-hidden="true">←</span> Semua project</button>
+          <div class="workspace-top-actions"><select class="workspace-size" id="workspace-size" aria-label="Ubah ukuran semua post"><option value="square">FEED · 1:1</option><option value="portrait">PORTRAIT · 4:5</option><option value="story">STORY · 9:16</option></select><button class="workspace-preview" id="open-preview" type="button"><span aria-hidden="true">▧</span> Ekspor <b id="preview-count">0</b></button></div>
+        </div>
+        <div class="project-heading"><div><span class="step-label" id="workspace-kind">PROJECT INSTAGRAM</span><h1 id="workspace-title">Project tanpa judul</h1><p id="workspace-subtitle">Susun post dan lihat alur carousel-mu di sini.</p></div><span class="pages-count" id="posts-count">0 POST</span></div>
+        <div class="posts-grid" id="posts-grid"></div>
+        <footer><span>Project tersimpan otomatis di perangkat ini.</span><span>trycode_ studio <b>·</b> 2026</span></footer>
+      </section>
+    </main>
+
+    <dialog class="post-dialog" id="post-dialog" aria-labelledby="post-dialog-title">
+      <div class="dialog-heading"><div><span class="step-label">SUSUN POST</span><h2 id="post-dialog-title">Post baru</h2></div><button class="dialog-close" id="close-post-dialog" type="button" aria-label="Tutup editor">×</button></div>
+      <div class="post-form">
+        <label class="field"><span>JENIS POST</span><select id="post-kind"><option value="title">Judul</option><option value="content">Isi</option><option value="closing">Penutup / CTA</option></select></label>
+        <label class="field"><span id="post-label-caption">LABEL KECIL</span><input id="post-label" type="text" maxlength="32" placeholder="Teks pendek di atas judul" /></label>
+        <label class="field"><span>AKUN SOSIAL MEDIA</span><div class="social-handle-input"><span>@</span><input id="post-instagram" type="text" maxlength="30" placeholder="trycode_studio" aria-label="Username Instagram untuk post ini" /></div></label>
+        <label class="field"><span id="post-title-label">JUDUL UTAMA</span><textarea id="post-title" rows="2" maxlength="90" placeholder="Tulis ide utama di sini"></textarea></label>
+        <label class="field"><span>PENJELASAN <small>OPSIONAL</small></span><textarea id="post-body" rows="3" maxlength="220" placeholder="Tambahkan konteks atau poin penting"></textarea></label>
+        <label class="field" id="post-cta-field" hidden><span>TEKS AJAKAN / CTA</span><input id="post-cta" type="text" maxlength="40" placeholder="Contoh: Yuk, mulai ngobrol ↗" /></label>
+        <details class="font-settings"><summary>Sesuaikan ukuran teks</summary><p>Atur skala tiap bagian untuk post ini.</p>
+          <label><span>Label <output id="font-label-output">100%</output></span><input id="font-label" data-font="label" type="range" min="70" max="150" step="5" value="100" /></label>
+          <label><span>Judul <output id="font-title-output">100%</output></span><input id="font-title" data-font="title" type="range" min="70" max="150" step="5" value="100" /></label>
+          <label><span>Penjelasan <output id="font-body-output">100%</output></span><input id="font-body" data-font="body" type="range" min="70" max="150" step="5" value="100" /></label>
+          <label><span>CTA <output id="font-cta-output">100%</output></span><input id="font-cta" data-font="cta" type="range" min="70" max="150" step="5" value="100" /></label>
+          <label><span>Akun sosial media <output id="font-instagram-output">100%</output></span><input id="font-instagram" data-font="instagram" type="range" min="70" max="150" step="5" value="100" /></label>
+        </details>
+        <div class="image-field">
+          <div class="theme-label">GAMBAR TAMBAHAN <small>OPSIONAL</small></div>
+          <div class="image-empty" id="post-image-empty">Tambahkan gambar jika perlu; layout akan menyesuaikan.</div>
+          <img class="image-thumb" id="post-image-thumb" alt="Preview gambar tambahan" hidden />
+          <div class="image-row"><label class="image-select-button"><span id="image-button-text">Pilih gambar</span><input id="post-image-input" type="file" accept="image/*" aria-label="Pilih gambar untuk post" /></label><small class="image-hint">JPG, PNG, WebP · maks. 12 MB</small><button class="remove-image" id="remove-post-image" type="button" hidden>Hapus gambar</button></div>
+          <div class="image-settings" id="post-image-settings" hidden>
+            <label class="image-setting"><span>POSISI GAMBAR</span><select id="post-image-position"><option value="top-right">Kanan atas</option><option value="top-left">Kiri atas</option><option value="bottom-right">Kanan bawah</option><option value="bottom-left">Kiri bawah</option></select></label>
+            <label class="image-setting"><span>CARA TAMPIL</span><select id="post-image-fit"><option value="cover">Potong memenuhi kotak</option><option value="contain">Tampilkan utuh</option></select></label>
+            <label class="image-setting" id="post-image-focus-field"><span>FOKUS POTONGAN</span><select id="post-image-focus"><option value="center">Tengah</option><option value="left">Kiri</option><option value="right">Kanan</option><option value="top">Atas</option><option value="bottom">Bawah</option></select></label>
+          </div>
+        </div>
+        <section class="theme-picker"><div class="theme-label">TEMA</div><div class="theme-choices" id="post-theme-choices" role="group" aria-label="Tema desain post"></div></section>
+      </div>
+      <div class="post-dialog-actions"><button class="quiet-action" id="cancel-post" type="button">Batal</button><button class="primary-action" id="save-post" type="button">Simpan post <b aria-hidden="true">→</b></button></div>
+    </dialog>
+
+    <dialog class="preview-dialog" id="preview-dialog" aria-labelledby="preview-dialog-title">
+      <div class="dialog-heading"><div><span class="step-label">EKSPOR PROJECT</span><h2 id="preview-dialog-title">Cek dan unduh post</h2></div><button class="dialog-close" id="close-preview" type="button" aria-label="Tutup ekspor">×</button></div>
+      <div class="preview-top"><div><span class="step-label">HASIL DESAIN</span><p id="preview-caption">Post 1 · Judul</p></div><div class="preview-controls"><button id="prev-slide" type="button" aria-label="Post sebelumnya">←</button><span id="slide-counter" aria-live="polite">1 / 1</span><button id="next-slide" type="button" aria-label="Post berikutnya">→</button></div><span class="format-chip" id="format-chip">1080 × 1080</span></div>
+      <div class="canvas-stage" id="canvas-stage" tabindex="0" aria-label="Pratinjau. Gunakan tombol panah atau geser untuk berpindah post"><canvas id="post-canvas" width="1080" height="1080" aria-label="Pratinjau grafis Instagram"></canvas></div>
+      <div class="preview-foot"><span><i></i> TERSIMPAN OTOMATIS</span><span id="theme-caption">TRYCODE_ STUDIO</span></div>
+      <div class="dialog-actions"><button class="download-button" id="download-page" type="button"><span>Unduh post ini</span><span aria-hidden="true">↓</span></button><button class="download-all" id="download-all" type="button">Unduh semua post <small>.ZIP</small></button></div>
+      <p class="download-note">PNG · 1080 px · Siap diunggah ke Instagram</p>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
